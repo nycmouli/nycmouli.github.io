@@ -1,0 +1,35 @@
+1D Quantum potentials
+=====================
+
+The basis solution requrires knowledge of the potential, defined in a 
+potential config file.
+
+Configuration Sections
+======================
+
+A potential is defined using the sections `[parameters]` and 
+`[regions]`:
+
+**[parameters]** has a list of *lowercase* parameter name as
+options with default values.
+**[regions]** options are region numbers, values have the form:
+
+.. code-block:: bash
+
+	start, stop | region value (or funtion)
+
+`start` and `stop` can be valid python code where the variable names should be defined in `[parameters]`. 
+The value or funtion can also refere to any variables; for funtions use the `lambda` syntax:
+
+.. code-block:: python
+
+	lambda x: v0*(x-shift)**@ -numpy.exp(x)
+
+Funtions can use `numpy` or `operator` modules in addition to parameters.
+
+API Documentation
+-----------------
+
+.. automodule:: basis.potential
+   :synopsis: How to configure a 1D potential using the configuration file.
+   :members: 
